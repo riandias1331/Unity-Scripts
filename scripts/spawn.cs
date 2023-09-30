@@ -6,6 +6,9 @@ public class spawn : MonoBehaviour
 {
     public float tempo;
     public GameObject inimigo;
+    //local exato do spawn
+    public Transform localEnemy;
+    public GameObject horda;
 
     float conta;
    
@@ -15,7 +18,7 @@ public class spawn : MonoBehaviour
      {
         conta += Time.deltaTime;
         if(conta > tempo ){
-            Instantiate(inimigo);
+            Instantiate(inimigo, localEnemy.position, localEnemy.rotation);
             conta = 0;
         }
 
@@ -25,5 +28,5 @@ public class spawn : MonoBehaviour
     void Update()
     {
         NovoInimigo();
+       // Novahorda();
     }
-}
